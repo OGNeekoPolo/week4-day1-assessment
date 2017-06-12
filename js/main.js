@@ -28,7 +28,7 @@ It should return new year's day for 2018.
   "use strict";
 
   //Your code here.
-var date = new Date("Feb 01, 2018");
+var date = new Date(2018, 1, 1); //using 3 integers will look like var date = new
 console.log( "Happy new year!: ", date );
 console.assert( date == "Thu Feb 01 2018 00:00:00 GMT-0500 (EST)", "#2: Test failed. Check the parameters. Returned: " + date )
 } )();
@@ -84,7 +84,7 @@ It should round a the `num` variable to be 184. Use the appropiate math method.
 //Your code here
 const num = 184.33;
 
-var roundNum = Math.floor(num);
+var roundNum = Math.round(num);
 
  console.log( "roundNum: ", roundNum );
  console.assert( roundNum == "184", "#5: Test failed. Check your math method and parameters. Return: " + roundNum )
@@ -143,8 +143,8 @@ The following object is empty. Use bracket notation so that 'car' has two doors,
   var car = {};
 
 //Add properties here.
-  car['doors'] = '2',
-  car['wheels'] = '4',
+  car['doors'] = 2,
+  car['wheels'] = 4,
   car['engine'] = true,
   car['type'] = 'sport',
   car['engine-size'] = 'v-8',
@@ -174,9 +174,9 @@ The global variable should be 'prius'.
   var car = 'prius';
 
   function changeCar() {
-    car = 'beattle';
+    var car = 'beattle';
   }
-  // changeCar();
+  changeCar();
 
 
   console.log( "global variable: ", car );
@@ -193,13 +193,12 @@ Fix compartmentalization so that the assertions pass. Something needs to be done
   "use strict";
   const language = 'HTML';
 
-function styling() {
+(function styling() {
   const language = 'CSS'
   console.log(language);
   console.assert(language == "CSS", "Test Failed. Did you compartmentalize?");
-}
+});
 
-styling();
 
 console.log(language);
 console.assert(language == "HTML", "Test Failed. Did you compartmentalize?");
@@ -216,7 +215,7 @@ Where should 'multiply()' go?
 **************************************************************************************/
 
 ( function() {
-  "use strinct";
+  "use strict";
 
   function hoistThis() {
     var sum = 2 + 2;
